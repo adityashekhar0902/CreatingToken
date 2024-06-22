@@ -23,17 +23,17 @@ contract MyToken {
     uint256 public totalSupply = 0;
     
     // mapping variable here
-    mapping(address=> uint) public stable;
+    mapping(address=> uint) public balance;
     // mint function
     function mint(address _account, uint256 _value) public {
         totalSupply += _value;
-        stable[_account]+= _value;
+        balance[_account]+= _value;
     }
     // burn function
     function burn(address _account, uint256 _value) public {
-        if(stable[_account]>= _value){
+        if(balance[_account]>= _value){
             totalSupply -= _value;
-            stable[_account] -= _value;
+            balance[_account] -= _value;
         }
     }
 }
